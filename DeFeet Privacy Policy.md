@@ -1,23 +1,31 @@
 # DeFeet Privacy Policy
 
-**Effective date:** 7 September 2026
+**Effective date:** 8 September 2026
 
 This Privacy Policy explains how DeFeet (“DeFeet”, “we”, “us”, or “our”) handles information when you interact with the DeFeet Discord bot.
 
 ## 1. Information We May Process
 
-Depending on how DeFeet is configured and used, we may process:
+When you use DeFeet, we process your Discord user ID and, for commands used in
+a server, the Discord server (guild) ID. These raw IDs are used transiently to
+handle the interaction, enforce rate limits, and create pseudonymous analytics
+identifiers. Raw Discord user and server IDs are not intentionally written to
+the analytics dataset.
 
-- Discord user IDs;
-- Discord server (guild) IDs;
-- channel IDs;
-- commands and interactions sent to the Bot;
-- timestamps;
-- bot preferences and settings;
-- moderation and access-control information;
-- technical logs, errors, and diagnostic information;
-- usage statistics, such as commands used and image requests; and
-- information you voluntarily provide to us.
+For product validation and abuse monitoring, we record:
+
+- pseudonymous user and server identifiers created with keyed HMAC-SHA-256;
+- whether a request came from a server or a direct message;
+- the command used;
+- whether the request succeeded, failed, or was rate limited;
+- the identifier or repository path of an image returned;
+- whether the response was public or visible only to the requester; and
+- the event date and timestamp.
+
+We may also process limited technical logs, errors, diagnostic information,
+and information you voluntarily provide when contacting support. We do not
+intentionally write Discord usernames, display names, message content,
+interaction tokens, email addresses, or IP addresses to the analytics dataset.
 
 We aim to collect only information reasonably necessary to operate, secure, maintain, and improve DeFeet.
 
@@ -54,9 +62,12 @@ DeFeet is an independent service and is not operated by or endorsed by Discord u
 
 ## 5. Image Requests
 
-When you request an image, we may temporarily or persistently record information such as your Discord user ID, the command used, the requested category or person, the image returned, and the time of the request where this is necessary for functionality, security, moderation, analytics, or abuse prevention.
-
-We recommend avoiding permanent command-level histories unless they are actually required to operate DeFeet.
+When you request an image, DeFeet creates pseudonymous user and server keys from
+Discord IDs using a private HMAC secret. HMAC keys are pseudonymous, not
+anonymous: they allow us to recognize repeat usage without intentionally
+storing the underlying Discord IDs in analytics. We use these events to
+understand engagement, server adoption, reliability, abuse, and whether the
+service is useful enough to continue improving.
 
 ## 6. Cookies
 
@@ -66,7 +77,10 @@ If DeFeet operates a website, dashboard, or other web service, that service may 
 
 ## 7. Sharing of Information
 
-We may disclose limited information to service providers that help us operate DeFeet, such as hosting, database, logging, security, or infrastructure providers.
+Cloudflare provides DeFeet's hosting, security, rate limiting, and Analytics
+Engine services and processes information on our behalf. Discord processes the
+interaction as described in Section 4. GitHub hosts the public image collection
+and manifest; DeFeet does not intentionally send Discord identifiers to GitHub.
 
 We may also disclose information where reasonably necessary to:
 
@@ -79,11 +93,12 @@ We do not sell personal information to advertisers or data brokers.
 
 ## 8. Data Retention
 
-We retain personal information only for as long as reasonably necessary for the purpose for which it was collected, including security, abuse prevention, operational, and legal requirements.
-
-Where practical, temporary technical logs should be automatically deleted after a defined retention period.
-
-The actual retention periods used by DeFeet should be documented internally and reflected here where appropriate.
+Cloudflare Analytics Engine retains the pseudonymous usage events described in
+this Policy for approximately three months. Rate-limit state is temporary.
+Technical logs are retained according to Cloudflare's applicable service
+settings and retention periods. We may retain support correspondence or
+information required for security or legal purposes only as long as reasonably
+necessary.
 
 ## 9. Data Security
 
@@ -99,13 +114,11 @@ To make a privacy request, contact us using the details below.
 
 We may need to verify that the Discord account or information involved belongs to you before fulfilling certain requests.
 
-## 11. Images of Public Figures
+## 11. Image and Removal Requests
 
-The DeFeet image database may contain photographs depicting celebrities, influencers, and other public figures.
-
-If you are depicted in an image and wish to raise a privacy or removal concern, contact us with sufficient information to identify the image.
-
-Copyright and other rights-holder requests may also be submitted through our content removal process.
+If you are depicted in an image and wish to raise a privacy or removal concern,
+contact us with enough information to identify the image. Copyright and other
+rights-holder requests may be submitted through the same contact method.
 
 ## 12. Children's Privacy
 
